@@ -35,6 +35,14 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
+  def self.find( id )
+    sql = "SELECT * FROM transactions WHERE id = $1"
+    values = [id]
+    transactions = SqlRunner.run( sql, values )
+    result = Transaction.new( transactions.first )
+    return result
+  end
+
 
 
 end

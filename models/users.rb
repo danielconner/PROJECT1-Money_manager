@@ -27,4 +27,6 @@ class User
     SqlRunner.run(sql)
   end
 
+  
+
 end
