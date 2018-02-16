@@ -1,6 +1,6 @@
 require_relative("../db/sql_runner.rb")
 
-class Users
+class User
 
   attr_reader :user_name, :budget, :id
 
