@@ -8,7 +8,7 @@ class Transaction
     @id = options['id'].to_i()
     @merchant_name = options['merchant_name']
     @transaction_value = options['transaction_value'].to_f()
-    @transaction_tag = options['transaction_tag']
+    @transaction_tag = options['transaction_tag'].to_i
     @user_id = options['user_id'].to_i()
   end
   # now time to make save method and find all method for CRUD
@@ -52,13 +52,28 @@ class Transaction
 
 # cannot get this to work, its mapping out a new instance of my class with nil in everything but the transaction value but i can get the transaction value to sum!!!
 
-  def self.transaction_total
-    sql = "SELECT transaction_value FROM transactions"
-    totals = SqlRunner.run(sql)
-    total = totals.map{|total| Transaction.new(total)}
-    total_value = [:transaction_value].sum()
-    return total_value
+  def self.transaction_total()
+    # total = Transaction.all.to_i()
+    # total_value = 0
+    # total.each { |transaction_value| total_value += transaction_value }
+    # return total_value
+    # total = totals.map{|total| Transaction.new(total)}
+    # total_value = total[:transaction_value].sum()
+    # return total_value
   end
 
+  def transaction_tag()
+      sql = "SELECT * FROM transaction_tags WHERE id = $1"
+      values = [@transaction_tag]
+      tags = SqlRunner.run(sql, values)
+      return tags.map {|tag| TransactionTag.new(tag)}
+  end
+
+  def self.transaction_tag(id)
+    sql = "SELECT * FROM transactions WHERE transaction_tag = $1"
+    values = [id]
+    tags = SqlRunner.run(sql, values)
+    return tags.map {|tag| Transaction.new(tag)}
+  end
 
 end
