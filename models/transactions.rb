@@ -50,6 +50,15 @@ class Transaction
     return result
   end
 
+# cannot get this to work, its mapping out a new instance of my class with nil in everything but the transaction value but i can get the transaction value to sum!!!
+
+  def self.transaction_total
+    sql = "SELECT transaction_value FROM transactions"
+    totals = SqlRunner.run(sql)
+    total = totals.map{|total| Transaction.new(total)}
+    total_value = [:transaction_value].sum()
+    return total_value
+  end
 
 
 end

@@ -21,7 +21,13 @@ transaction1 = Transaction.new ({
 
 transaction1.save()
 
-
+transaction2 = Transaction.new ({
+  'merchant_name' => 'Beer Store',
+  'transaction_value' => 16.99,
+  'transaction_tag' => 'drinks',
+  'user_id' => user1.id
+  })
+transaction2.save()
 
 
 
