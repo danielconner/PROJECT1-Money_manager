@@ -52,14 +52,14 @@ class Transaction
 
 # cannot get this to work, its mapping out a new instance of my class with nil in everything but the transaction value but i can get the transaction value to sum!!!
 
-  def self.transaction_total()
-    total = Transaction.all
-    total_sum = 0
-    for value in total[transaction_value]
-      total_sum += value
-    end
-    return total_sum
-  end
+  # def self.transaction_total()
+  #   total = Transaction.all
+  #   total_sum = 0
+  #   for value in total[transaction_value]
+  #     total_sum += value
+  #   end
+  #   return total_sum
+  # end
 
   def transaction_tag()
       sql = "SELECT * FROM transaction_tags WHERE id = $1"

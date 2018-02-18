@@ -16,10 +16,29 @@ class TransactionTag
     @id =SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
+  def update
+    sql ="UPDATE transaction_tags SET (tag_name) = ($1) WHERE id = $2"
+    values = [@tag_name, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.delete_all
     sql = "DELETE FROM transaction_tags"
     SqlRunner.run(sql)
   end
 
+  def self.all
+    sql ="SELECT * From transaction_tags"
+    transactions = SqlRunner.run(sql)
+    return transactions.map{|transaction| TransactionTag.new(transaction)}
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM transaction_tags WHERE id = $1"
+    values = [id]
+    transactions = SqlRunner.run( sql, values )
+    result = TransactionTag.new( transactions.first )
+    return result
+  end
 
 end
