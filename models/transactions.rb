@@ -53,13 +53,12 @@ class Transaction
 # cannot get this to work, its mapping out a new instance of my class with nil in everything but the transaction value but i can get the transaction value to sum!!!
 
   def self.transaction_total()
-    # total = Transaction.all.to_i()
-    # total_value = 0
-    # total.each { |transaction_value| total_value += transaction_value }
-    # return total_value
-    # total = totals.map{|total| Transaction.new(total)}
-    # total_value = total[:transaction_value].sum()
-    # return total_value
+    total = Transaction.all
+    total_sum = 0
+    for value in total[transaction_value]
+      total_sum += value
+    end
+    return total_sum
   end
 
   def transaction_tag()
