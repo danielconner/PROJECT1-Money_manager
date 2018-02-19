@@ -6,10 +6,10 @@
   <label for="transaction_value">Value of Transaction:</label>
   <input type="float" name="transaction_value" id="transaction_value"/>
 
-  <label for="transaction_tag">Select transaction type</label>
-  <select name="transaction_tag" id="transaction_tag">
+  <label for="tag_id">Select transaction type</label>
+  <select name="tag_id" id="tag_id">
     <% for tag in @tag %>
-    <option value="<%= tag.tag_name %>"><%=tag.tag_name%></option>
+    <option value="<%= tag.id %>"><%=tag.tag_name%></option>
     <%end%>
   </select>
 

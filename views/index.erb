@@ -1,14 +1,12 @@
-<p>A list of all transactions logged for your account</p>
+<h1>A list of all transactions logged for your account</h1>
+
+<p><a href="/transactions/tag">Click here</a> if you want to filter by transaction tag</p>
 
 <% @transactions.each do |transaction| %>
 
 <p>Merchant Name: <%= transaction.merchant_name()%></p>
 <p>Transaction Value: <%= transaction.transaction_value()%></p>
 
-<% @tags.each do |tag| %>
-<p>Transaction Type: <%= tag.tag_name %></p>
-
-<% end %>
 <p><a href="/transactions/<%= transaction.id %>">Show Transaction</a></p>
 <% end %>
 <p>Total Amount of Transactions: <%= @value%></p>

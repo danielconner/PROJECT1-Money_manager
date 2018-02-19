@@ -1,0 +1,12 @@
+<p>Select which tag you want to filter by</p>
+
+<form  action="/transactions/filter_results" method="post">
+
+  <label for="tag_id">Select transaction type</label>
+  <select name="tag_id" id="tag_id">
+    <% for tag in @tag %>
+    <option value="<%= tag.id %>"><%=tag.tag_name%></option>
+    <%end%>
+    <input type="submit" value="Click to filter" />
+
+  </form>

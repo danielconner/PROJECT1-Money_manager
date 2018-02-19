@@ -2,7 +2,7 @@
 
 <p>Merchant name: <%= @transaction.merchant_name %></p>
 <p>Transaction Value: <%= @transaction.transaction_value %></p>
-<p>Transaction Tag: <%= @transaction.transaction_tag %></p>
+<p>Transaction Tag: <%= @tag %></p>
 
 <form  action="/transactions/<%= @transaction.id%>/delete" method="post">
 

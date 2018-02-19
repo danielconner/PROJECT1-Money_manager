@@ -2,19 +2,18 @@ require_relative("../db/sql_runner.rb")
 
 class Transaction
 
-  attr_reader :id, :merchant_name, :transaction_value, :transaction_tag, :user_id
+  attr_reader :id, :merchant_name, :transaction_value, :tag_id
 
   def initialize( options )
     @id = options['id'].to_i()
     @merchant_name = options['merchant_name']
     @transaction_value = options['transaction_value'].to_f()
-    @transaction_tag = options['transaction_tag'].to_i
-    @user_id = options['user_id'].to_i()
+    @tag_id = options['tag_id'].to_i
   end
   # now time to make save method and find all method for CRUD
   def save()
-    sql = "INSERT INTO transactions (merchant_name, transaction_value, transaction_tag, user_id) VALUES ($1, $2, $3, $4) RETURNING id"
-    values = [@merchant_name, @transaction_value, @transaction_tag, @user_id]
+    sql = "INSERT INTO transactions (merchant_name, transaction_value, tag_id) VALUES ($1, $2, $3) RETURNING id"
+    values = [@merchant_name, @transaction_value, @tag_id]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i()
   end
 
@@ -30,8 +29,8 @@ class Transaction
   end
 
   def update
-    sql ="UPDATE transactions SET (merchant_name, transaction_value, transaction_tag, user_id) = ($1, $2, $3, $4) WHERE id = $5"
-    values = [@merchant_name, @transaction_value, @transaction_tag, @user_id, @id]
+    sql ="UPDATE transactions SET (merchant_name, transaction_value, tag_id) = ($1, $2, $3) WHERE id = $4"
+    values = [@merchant_name, @transaction_value, @tag_id, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -57,16 +56,29 @@ class Transaction
     return SqlRunner.run(sql).first[:sum.to_s].to_f()
   end
 
-  def transaction_tag()
-    sql = "SELECT * FROM transaction_tags WHERE id = $1"
-    values = [@transaction_tag]
-    tags = SqlRunner.run(sql, values)
-    return tags.map {|tag| TransactionTag.new(tag)}
+  def self.transaction_total_by_tag(tag_id)
+    sql = "SELECT SUM(transaction_value) FROM TRANSACTIONS INNER JOIN tags ON transactions.tag_id = tags.id WHERE tags.id = $1"
+    values = [tag_id]
+    return SqlRunner.run(sql, values).first[:sum.to_s].to_f()
   end
 
-  def self.transaction_tag(transaction_tag)
-    sql = "SELECT * FROM transactions INNER JOIN transaction_tags ON transactions.transaction_tag = $1"
-    values = [transaction_tag]
+  def get_tag()
+    sql = "SELECT * FROM tags WHERE id = $1"
+    values = [@tag_id]
+    tags = SqlRunner.run(sql, values)
+    return tags.map{|tag| Tag.new(tag)}
+  end
+
+  def get_tag_name()
+    sql = "SELECT * FROM tags WHERE id = $1"
+    values = [@tag_id]
+    return SqlRunner.run(sql, values).first[:tag_name.to_s]
+
+  end
+
+  def self.find_by_tag(tag_id)
+    sql = "SELECT * FROM transactions INNER JOIN tags ON transactions.tag_id = tags.id WHERE tags.id = $1"
+    values = [tag_id]
     tags = SqlRunner.run(sql, values)
     return tags.map{|tag| Transaction.new(tag)}
   end

@@ -1,0 +1,8 @@
+<% @transactions.each do |transaction| %>
+
+<p>Merchant Name: <%= transaction.merchant_name()%></p>
+<p>Transaction Value: <%= transaction.transaction_value()%></p>
+
+<% end %>
+
+<p>Total Amount of Transactions: <%= @value%></p>

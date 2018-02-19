@@ -1,13 +1,13 @@
 require_relative('../models/users.rb')
 require_relative('../models/transactions.rb')
-require_relative('../models/transaction_tag.rb')
+require_relative('../models/tag.rb')
 
 
 require('pry')
 
 Transaction.delete_all
 User.delete_all
-TransactionTag.delete_all
+Tag.delete_all
 
 
 user1 = User.new ({
@@ -17,46 +17,58 @@ user1 = User.new ({
 
 user1.save()
 
-transaction_tag1 = TransactionTag.new ({
-  'tag_name' => 'food'
+tag1 = Tag.new ({
+  'tag_name' => 'Groceries'
   })
-transaction_tag2 = TransactionTag.new ({
-  'tag_name' => 'clothes'
+tag2 = Tag.new ({
+  'tag_name' => 'Wardobe'
   })
-transaction_tag1.save()
-transaction_tag2.save()
+tag3 = Tag.new ({
+  'tag_name' => 'Bills'
+  })
+tag4 = Tag.new ({
+  'tag_name' => 'Travel'
+  })
+tag5 = Tag.new ({
+  'tag_name' => 'Entertainment'
+  })
+tag6 = Tag.new ({
+  'tag_name' => 'Frivolous'
+  })
+tag1.save()
+tag2.save()
+tag3.save()
+tag4.save()
+tag5.save()
+tag6.save()
 
-transaction1 = Transaction.new ({
+transaction1 = Transaction.new({
   'merchant_name' => 'Tesco',
   'transaction_value' => 7.99,
-  'transaction_tag' => transaction_tag1.id,
-  'user_id' => user1.id
+  'tag_id' => tag1.id,
   })
 
 transaction1.save()
 
-transaction2 = Transaction.new ({
+transaction2 = Transaction.new({
   'merchant_name' => 'Beer Store',
   'transaction_value' => 16.99,
-  'transaction_tag' => transaction_tag1.id,
-  'user_id' => user1.id
+  'tag_id' => tag1.id,
   })
 transaction2.save()
 
-transaction3 = Transaction.new ({
+transaction3 = Transaction.new({
   'merchant_name' => 'ZARA',
   'transaction_value' => 59.95,
-  'transaction_tag' => transaction_tag2.id,
-  'user_id' => user1.id
+  'tag_id' => tag2.id,
   })
 
 transaction3.save()
 
-transaction4 = Transaction.new ({
+transaction4 = Transaction.new({
   'merchant_name' => 'Red Bubble',
   'transaction_value' => 19.99,
-  'transaction_tag' => transaction_tag2.id,
-  'user_id' => user1.id
+  'tag_id' => tag2.id,
   })
 transaction4.save()
 

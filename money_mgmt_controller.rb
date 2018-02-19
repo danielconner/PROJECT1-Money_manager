@@ -2,7 +2,7 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
 
-require_relative('./models/transaction_tag.rb')
+require_relative('./models/tag.rb')
 require_relative('./models/transactions.rb')
 require_relative('./models/users.rb')
 
@@ -10,8 +10,7 @@ require_relative('./models/users.rb')
 get '/transactions' do
   @transactions = Transaction.all()
   @value = Transaction.transaction_total()
-  @tags = TransactionTag.all()
-  # @tag = i want to get the info from the transaction tab table!!
+  @tag = Tag.all()
   erb(:index)
 end
 
@@ -24,13 +23,26 @@ end
 
 # new
 get '/transactions/new' do
-  @tag = TransactionTag.all()
+  @tag = Tag.all()
   erb(:new)
+end
+
+get '/transactions/tag' do
+  @tag = Tag.all
+  erb(:tag)
+end
+
+post '/transactions/filter_results' do
+  @transactions = Transaction.find_by_tag(params[:tag_id])
+  @value = Transaction.transaction_total_by_tag(params[:tag_id])
+  erb(:filter_results)
 end
 
 #show
 get '/transactions/:id' do
+
   @transaction = Transaction.find(params[:id])
+  @tag = @transaction.get_tag_name()
   erb(:show)
 end
 
@@ -44,14 +56,15 @@ end
 #edit
 get '/transactions/:id/edit' do
   @transactions = Transaction.find(params[:id])
-  @tag = TransactionTag.all()
-
+  @tag = Tag.all()
   erb(:edit)
 end
 
+
+
 #update
 post '/transactions/:id' do
-  @transactions = Transactions.new(params)
+  @transactions = Transaction.new(params)
   @transactions.update()
   redirect to '/transactions'
 end
