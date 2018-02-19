@@ -1,3 +1,25 @@
 body {
-  background-color: grey;
+  background-color: #57A3BE;
+  text-align: center;
+  color: #F7F7F7;
+}
+
+body a{
+  text-decoration: none;
+  font-size: 25px;
+
+}
+
+li {
+  display:inline-block;
+  justify-content: space-around;
+  list-style: square;
+}
+.header {
+  display:grid;
+  background-color: #4F7E8F;
+}
+
+.list{
+  text-decoration: none;
 }

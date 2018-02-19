@@ -40,7 +40,6 @@ end
 
 #show
 get '/transactions/:id' do
-
   @transaction = Transaction.find(params[:id])
   @tag = @transaction.get_tag_name()
   erb(:show)
