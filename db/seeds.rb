@@ -20,7 +20,11 @@ user1.save()
 transaction_tag1 = TransactionTag.new ({
   'tag_name' => 'food'
   })
+transaction_tag2 = TransactionTag.new ({
+  'tag_name' => 'clothes'
+  })
 transaction_tag1.save()
+transaction_tag2.save()
 
 transaction1 = Transaction.new ({
   'merchant_name' => 'Tesco',
@@ -39,7 +43,22 @@ transaction2 = Transaction.new ({
   })
 transaction2.save()
 
+transaction3 = Transaction.new ({
+  'merchant_name' => 'ZARA',
+  'transaction_value' => 59.95,
+  'transaction_tag' => transaction_tag2.id,
+  'user_id' => user1.id
+  })
 
+transaction3.save()
+
+transaction4 = Transaction.new ({
+  'merchant_name' => 'Red Bubble',
+  'transaction_value' => 19.99,
+  'transaction_tag' => transaction_tag2.id,
+  'user_id' => user1.id
+  })
+transaction4.save()
 
 binding.pry
 nil

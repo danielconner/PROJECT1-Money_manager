@@ -1,0 +1,17 @@
+<p>Transaction Details</p>
+
+<p>Merchant name: <%= @transaction.merchant_name %></p>
+<p>Transaction Value: <%= @transaction.transaction_value %></p>
+<p>Transaction Tag: <%= @transaction.transaction_tag %></p>
+
+<form  action="/transactions/<%= @transaction.id%>/delete" method="post">
+
+  <input type="submit" name="delete" value="delete" />
+
+</form>
+
+<form action="/transactions/<%= @transaction.id%>/edit" method="GET">
+
+  <input type="submit" name="edit" value="edit">
+
+</form>

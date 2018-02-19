@@ -1,0 +1,18 @@
+<form method="POST" action="/transactions">
+
+  <label for="merchant_name">Merchant Name</label>
+  <input type="text" name="merchant_name" id="merchant_name"/>
+
+  <label for="transaction_value">Value of Transaction:</label>
+  <input type="float" name="transaction_value" id="transaction_value"/>
+
+  <label for="transaction_tag">Select transaction type</label>
+  <select name="transaction_tag" id="transaction_tag">
+    <% for tag in @tag %>
+    <option value="<%= tag.tag_name %>"><%=tag.tag_name%></option>
+    <%end%>
+  </select>
+
+  <input type="submit" value="Enter Transaction" />
+
+</form>

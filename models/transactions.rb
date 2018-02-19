@@ -35,10 +35,10 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
-  def delete()
+  def self.delete( id )
     sql = "DELETE FROM transactions
     WHERE id = $1"
-    values = [@id]
+    values = [id]
     SqlRunner.run( sql, values )
   end
 
@@ -50,29 +50,25 @@ class Transaction
     return result
   end
 
-# cannot get this to work, its mapping out a new instance of my class with nil in everything but the transaction value but i can get the transaction value to sum!!!
+  # cannot get this to work, its mapping out a new instance of my class with nil in everything but the transaction value but i can get the transaction value to sum!!! solved
 
-  # def self.transaction_total()
-  #   total = Transaction.all
-  #   total_sum = 0
-  #   for value in total[transaction_value]
-  #     total_sum += value
-  #   end
-  #   return total_sum
-  # end
-
-  def transaction_tag()
-      sql = "SELECT * FROM transaction_tags WHERE id = $1"
-      values = [@transaction_tag]
-      tags = SqlRunner.run(sql, values)
-      return tags.map {|tag| TransactionTag.new(tag)}
+  def self.transaction_total()
+    sql = "SELECT SUM(transaction_value) FROM TRANSACTIONS "
+    return SqlRunner.run(sql).first[:sum.to_s].to_f()
   end
 
-  def self.transaction_tag(id)
-    sql = "SELECT * FROM transactions WHERE transaction_tag = $1"
-    values = [id]
+  def transaction_tag()
+    sql = "SELECT * FROM transaction_tags WHERE id = $1"
+    values = [@transaction_tag]
     tags = SqlRunner.run(sql, values)
-    return tags.map {|tag| Transaction.new(tag)}
+    return tags.map {|tag| TransactionTag.new(tag)}
+  end
+
+  def self.transaction_tag(transaction_tag)
+    sql = "SELECT * FROM transactions INNER JOIN transaction_tags ON transactions.transaction_tag = $1"
+    values = [transaction_tag]
+    tags = SqlRunner.run(sql, values)
+    return tags.map{|tag| Transaction.new(tag)}
   end
 
 end
