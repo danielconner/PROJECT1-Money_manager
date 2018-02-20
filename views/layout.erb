@@ -7,21 +7,27 @@
   <title>Money MGMT</title>
   <link rel="icon" href="/logo.png" />
   <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Spectral+SC" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
 
 </head>
 
 
 <header class="header">
-  <h1>This Is the header</h1>
+  <img class="logo" src="/logo.png" alt="logo" width="300px" height="150px">
+  <nav id="nav-bar">
+    <ul>
+      <li><a href="/transactions">View Tranx</a></li>
+      <li><a href="/transactions/new">New Tranx</a></li>
+      <li><a href="/transactions/tag">Filter</a></li>
+    </ul>
+  </nav>
 </header>
-<nav id="nav-bar">
-  <ul>
-    <li><a href="/transactions">View Tranx</a></li>
-    <li><a href="/transactions/new">Add a new transaction</a></li>
-    <li><a href="/transactions/tag">Filter by Tag</a></li>
-  </ul>
-</nav>
 <body>
   <%= yield %>
 </body>
+<footer>
+  <p>&copy; DAC</p>
+
+</footer>
 </html>

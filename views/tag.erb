@@ -1,6 +1,10 @@
-<p>Select which tag you want to filter by</p>
+<h2 class="tag">Select which tag you want to filter by</h2>
 
-<form  action="/transactions/filter_results" method="post">
+
+<div class="filter">
+
+
+<form action="/transactions/filter_results" method="post">
 
   <label for="tag_id">Select transaction type</label>
   <select name="tag_id" id="tag_id">
@@ -10,3 +14,4 @@
     <input type="submit" value="Click to filter" />
 
   </form>
+</div>

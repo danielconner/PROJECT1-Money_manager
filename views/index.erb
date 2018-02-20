@@ -1,12 +1,26 @@
-<h2>A list of all transactions logged for your account</h2>
+<h2 class="index">Here is a list of all current transactions on your account:</h2>
 
-<p><a href="/transactions/tag">Click here</a> if you want to filter by transaction tag</p>
 
-<% @transactions.each do |transaction| %>
+<h3 class="index">Current Expenditure: <%= @value%></h3>
 
-<p>Merchant Name: <%= transaction.merchant_name()%></p>
-<p>Transaction Value: <%= transaction.transaction_value()%></p>
 
-<p><a href="/transactions/<%= transaction.id %>">Show Transaction</a></p>
-<% end %>
-<h3>Total Amount of Transactions: <%= @value%></h3>
+
+<div class="container">
+  <table>
+    <tr>
+      <th>Merchant Name</th>
+      <th>Transaction Value</th>
+      <th></th>
+    </tr>
+    <% @transactions.each do |transaction| %>
+    <tr>
+      <td><%= transaction.merchant_name()%></td>
+      <td><%= transaction.transaction_value()%></td>
+
+      <td><a href="/transactions/<%= transaction.id %>">Show Transaction</a></td>
+      <% end %>
+    </tr>
+  </table>
+</div>
+
+<h4 class="index">Remember to always stay on top of your finances as spending more than you earn can lead to debt and can affect your credit rating</h4>

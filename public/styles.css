@@ -1,25 +1,115 @@
 body {
-  background-color: #57A3BE;
+  background-color: #DCDCDD;
   text-align: center;
   color: #F7F7F7;
-}
-
-body a{
-  text-decoration: none;
-  font-size: 25px;
-
+  margin:0;
+  padding:0;
 }
 
 li {
-  display:inline-block;
+  list-style-type: none;
+  display: inline-grid;
   justify-content: space-around;
-  list-style: square;
+  width: 200px;
+  height: 40px;
+  background-color: #DCDCDD;
+}
+
+li a{
+  text-decoration: none;
+  font-size: 30px;
+  color: #46494C;
+  font-family: 'Spectral SC', serif;
+
+}
+
+.main {
+  display: grid;
+  background-color: grey;
+  list-style-type: none;
 }
 .header {
   display:grid;
-  background-color: #4F7E8F;
+  background-color: #46494C;
+  height:300px;
 }
 
-.list{
+.container {
+  display: grid;
+  justify-content: center;
+  color: #46494C;
+}
+
+.container th{
+  border: 1px #4F7E8F solid;
+  width:200px;
+  height:50px;
+  font-family: 'Spectral SC', serif;
+
+}
+
+.container td{
+  border: 1px #4F7E8F solid;
+  height: 30px;
+  font-family: 'Karla', sans-serif;
+
+}
+
+.container a{
   text-decoration: none;
+  background-color: #46494C;
+  color: white;
+  padding: 5px 10px;
+  font-family: 'Karla', sans-serif;
+
+}
+
+footer {
+  background-color: #C5C3C6;
+  height: 40px;
+  margin: 0;
+  padding:0;
+  display: grid;
+  justify-content: flex-start;
+  font-family: 'Spectral SC', serif;
+
+}
+
+.logo {
+  margin-left: 500px;
+  margin-top: 20px;
+}
+
+.index {
+  color: #46494C;
+  font-family: 'Karla', sans-serif;
+
+}
+
+.new-text h1{
+  font-family: 'Spectral SC', serif;
+  color: #46494C;
+
+}
+
+.new-text {
+  font-family: 'Spectral SC', serif;
+  font-size: 20px;
+  color: #46494C;
+}
+
+.new-form {
+  color: #46494C;
+  font-size: 20px;
+  padding-bottom: 20px;
+  font-family: 'Karla', sans-serif;
+}
+
+input[type="text"], input[type="number"] {
+  padding: 6px;
+}
+
+select {
+  padding:10px;
+
 }

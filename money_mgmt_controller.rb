@@ -18,7 +18,7 @@ end
 post '/transactions' do
   @transaction = Transaction.new(params)
   @transaction.save()
-  erb(:create)
+  redirect to "/transactions"
 end
 
 # new
