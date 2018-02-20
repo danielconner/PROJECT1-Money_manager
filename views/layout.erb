@@ -15,13 +15,15 @@
 
 <header class="header">
   <img class="logo" src="/logo.png" alt="logo" width="300px" height="150px">
-  <nav id="nav-bar">
-    <ul>
-      <li><a href="/transactions">View Tranx</a></li>
-      <li><a href="/transactions/new">New Tranx</a></li>
-      <li><a href="/transactions/tag">Filter</a></li>
-    </ul>
-  </nav>
+  <div class="nav-bar">
+    <nav>
+      <ul>
+        <li><a href="/transactions">View Tranx</a></li>
+        <li><a href="/transactions/new">New Tranx</a></li>
+        <li><a href="/transactions/tag">Filter</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 <body>
   <%= yield %>

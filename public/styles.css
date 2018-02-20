@@ -6,14 +6,15 @@ body {
   padding:0;
 }
 
-li {
+.nav-bar li {
   list-style-type: none;
   display: inline-grid;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: #DCDCDD;
+
 }
 
-li a{
+.nav-bar li a{
   text-decoration: none;
   font-size: 30px;
   color: #46494C;
@@ -155,4 +156,33 @@ select {
   font-size: 20px;
   color: #46494C;
 
+}
+
+.show-page {
+  display: grid;
+  justify-content: center;
+  color: #46494C;
+  margin-bottom: 15px;
+    padding-bottom: 30px;
+}
+
+.show-page th{
+  border: 1px #4F7E8F solid;
+  width:200px;
+  height:50px;
+  font-family: 'Spectral SC', serif;
+
+}
+
+.show-page td{
+  border: 1px #4F7E8F solid;
+  height: 30px;
+  font-family: 'Karla', sans-serif;
+
+}
+
+.show-head {
+  font-family: 'Spectral SC', serif;
+  font-size: 20px;
+  color: #46494C;
 }
