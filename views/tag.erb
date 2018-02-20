@@ -1,4 +1,11 @@
-<h2 class="tag">Select which tag you want to filter by</h2>
+<div class="tag">
+
+
+<h1>Select a catagory, then click to filter</h1>
+
+<h2>What have you spend been spending your money on??</h2>
+
+</div>
 
 
 <div class="filter">
@@ -6,7 +13,7 @@
 
 <form action="/transactions/filter_results" method="post">
 
-  <label for="tag_id">Select transaction type</label>
+  <label for="tag_id">Select transaction type:</label>
   <select name="tag_id" id="tag_id">
     <% for tag in @tag %>
     <option value="<%= tag.id %>"><%=tag.tag_name%></option>
@@ -15,3 +22,5 @@
 
   </form>
 </div>
+<!-- make this a div and give it a grey colour and give it an opacity so the color can make the image blend more -->
+<img src="/graph.jpg" alt="Graph" height="400px">

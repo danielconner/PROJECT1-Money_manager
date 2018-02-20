@@ -1,8 +1,31 @@
-<% @transactions.each do |transaction| %>
+<div class="results-page">
 
-<p>Merchant Name: <%= transaction.merchant_name()%></p>
-<p>Transaction Value: <%= transaction.transaction_value()%></p>
 
-<% end %>
+<h1>Here are your filtered results:</h1>
 
-<p>Total Amount of Transactions: <%= @value%></p>
+<p>REMEMBER to track your spending, dont keep your head in the sand!</p>
+
+<p>Total Amount of filtered transactions: <%= @value%></p>
+
+</div>
+
+<div class="results-table">
+
+
+  <table>
+    <tr>
+      <th>Merchant Name</th>
+      <th>Transaction Value</th>
+    </tr>
+    <% @transactions.each do |transaction| %>
+    <tr>
+      <td><%= transaction.merchant_name()%></td>
+      <td><%= transaction.transaction_value()%></td>
+    </tr>
+    <% end %>
+
+  </table>
+
+
+
+</div>

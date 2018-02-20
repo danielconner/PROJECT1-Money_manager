@@ -10,8 +10,6 @@ li {
   list-style-type: none;
   display: inline-grid;
   justify-content: space-around;
-  width: 200px;
-  height: 40px;
   background-color: #DCDCDD;
 }
 
@@ -20,6 +18,7 @@ li a{
   font-size: 30px;
   color: #46494C;
   font-family: 'Spectral SC', serif;
+  border-style: ridge;
 
 }
 
@@ -111,5 +110,49 @@ input[type="text"], input[type="number"] {
 
 select {
   padding:10px;
+}
+
+.tag {
+  color : #46494C;
+  font-family: 'Spectral SC', serif;
+}
+
+.filter {
+  color: #46494C;
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
+  padding-right: 10px;
+}
+
+.filter select{
+  padding:10px;
+}
+
+.results-table {
+  display: grid;
+  justify-content: center;
+  color: #46494C;
+  margin-bottom: 15px;
+}
+
+.results-table th{
+  border: 1px #4F7E8F solid;
+  width:200px;
+  height:50px;
+  font-family: 'Spectral SC', serif;
+
+}
+
+.results-table td{
+  border: 1px #4F7E8F solid;
+  height: 30px;
+  font-family: 'Karla', sans-serif;
+
+}
+
+.results-page {
+  font-family: 'Spectral SC', serif;
+  font-size: 20px;
+  color: #46494C;
 
 }
