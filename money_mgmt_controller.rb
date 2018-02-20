@@ -67,3 +67,7 @@ post '/transactions/:id' do
   @transactions.update()
   redirect to '/transactions'
 end
+
+get '/' do
+  erb(:home)
+end

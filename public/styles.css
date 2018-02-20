@@ -15,6 +15,7 @@ body {
 }
 
 .nav-bar li a{
+  padding: 0 20px;
   text-decoration: none;
   font-size: 30px;
   color: #46494C;
@@ -185,4 +186,37 @@ select {
   font-family: 'Spectral SC', serif;
   font-size: 20px;
   color: #46494C;
+}
+
+.tag-image {
+  background-image: url("/money.jpg");
+  color: rgba(220, 220, 221,0.5);
+  height:150px;
+
+}
+
+.edit-head {
+  font-family: 'Spectral SC', serif;
+  font-size: 20px;
+  color: #46494C;
+
+}
+
+.edit-form {
+  color: #46494C;
+  font-size: 20px;
+  padding-bottom: 20px;
+  font-family: 'Karla', sans-serif;
+}
+
+.home {
+  font-family: 'Spectral SC', serif;
+  font-size: 20px;
+  color: #46494C;
+
+}
+
+.small-print {
+  color:#4F7E8F;
+  font-size: 10px;
 }
