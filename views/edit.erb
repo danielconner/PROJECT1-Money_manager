@@ -2,6 +2,8 @@
 <h2>You can edit your transaction by either changing the merchant, the value or the category...or all of them</h2>
 </div>
 
+<!-- edit form to be here need to add placeholder values of the existing order -->
+
 <div class="edit-form">
 
 <form method="POST" action="/transactions/<%= @transactions.id %>">
@@ -9,8 +11,8 @@
   <label for="merchant_name">Merchant Name</label>
   <input type="text" name="merchant_name" id="merchant_name" Value="<%=@transactions.merchant_name%>"/>
 
-  <label for="transaction_value">Value of Transaction:</label>
-  <input type="float" name="transaction_value" id="transaction_value" value="<%=@transactions.transaction_value %>"/>
+  <label for="transaction_value">Value of Transaction (£):</label>
+  <input type="number" step="0.01" name="transaction_value" id="transaction_value" value="<%=@transactions.transaction_value %>"/>
 
   <label for="tag_id">Select transaction type</label>
   <select name="tag_id" id="tag_id">
@@ -22,8 +24,4 @@
   <input type="submit" value="Edit Transaction" />
 
 </form>
-</div>
-
-<div class="tag-image">
-
 </div>

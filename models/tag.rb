@@ -16,6 +16,8 @@ class Tag
     @id =SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
+  # save method works now add CRUD functions
+
   def update
     sql ="UPDATE tags SET (tag_name) = ($1) WHERE id = $2"
     values = [@tag_name, @id]

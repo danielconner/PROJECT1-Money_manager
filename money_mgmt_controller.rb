@@ -27,11 +27,13 @@ get '/transactions/new' do
   erb(:new)
 end
 
+#filter by tag
 get '/transactions/tag' do
   @tag = Tag.all
   erb(:tag)
 end
 
+#filter results
 post '/transactions/filter_results' do
   @transactions = Transaction.find_by_tag(params[:tag_id])
   @value = Transaction.transaction_total_by_tag(params[:tag_id])
@@ -68,6 +70,7 @@ post '/transactions/:id' do
   redirect to '/transactions'
 end
 
+#hoem page
 get '/' do
   erb(:home)
 end

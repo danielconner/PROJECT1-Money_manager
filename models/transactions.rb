@@ -62,6 +62,8 @@ class Transaction
     return SqlRunner.run(sql, values).first[:sum.to_s].to_f()
   end
 
+  # write a functions which returns the tag of an transaction based on its tag id
+
   def get_tag()
     sql = "SELECT * FROM tags WHERE id = $1"
     values = [@tag_id]

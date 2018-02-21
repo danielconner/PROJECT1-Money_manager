@@ -1,3 +1,4 @@
+-- table set up for my DB
 
 DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS tags;

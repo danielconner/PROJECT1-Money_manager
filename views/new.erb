@@ -1,3 +1,5 @@
+<!-- FORM FOR CUSTOMER TO ADD A NEW TRANX, FIND A WAY TO LIMIT TO 2 DECIMAL PLACES!! -->
+
 <div class="new-text">
 
 
@@ -5,9 +7,9 @@
 
 <p>Add your merchant name, where you have made your purchase.</p>
 
-<p>Then add the transaction value, remember to keep on top of your spending be honest and be vigiliant, NO ONE LIKES BANK CHARGES!!</p>
+<p>Then add the transaction value, remember to keep on top of your spending be honest and be vigilant, NO ONE LIKES BANK CHARGES!!</p>
 
-<p>Then select the category of your purchase, we find that most types of purchase are encompased but if you want a new field drop us an email. *Coming Soon* create your own category</p>
+<p>Then select the category of your purchase, we find that most types of purchase are encompassed but if you want a new field drop us an email. *Coming Soon* create your own category</p>
 
 </div>
 <div class="new-form">
@@ -17,8 +19,8 @@
   <label for="merchant_name">Merchant name</label>
   <input type="text" name="merchant_name" id="merchant_name"/>
 
-  <label for="transaction_value">Value of transaction:</label>
-  <input type="number" step="any" name="transaction_value" id="transaction_value"/>
+  <label for="transaction_value">Value of transaction (£):</label>
+  <input type="number" step="0.01" name="transaction_value" id="transaction_value"/>
 
   <label for="tag_id">Select transaction type</label>
   <select name="tag_id" id="tag_id">
@@ -30,9 +32,5 @@
   <input type="submit" value="Enter Transaction" />
 
 </form>
-
-</div>
-
-<div class="tag-image">
 
 </div>

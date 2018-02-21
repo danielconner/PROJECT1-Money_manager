@@ -2,6 +2,10 @@ require_relative("../db/sql_runner.rb")
 
 class User
 
+  # if i get time going to try and add a user so on the home page it welcomes the user and shows budget
+
+  # struggling with time this is a could and not should so will not be completed till after submission
+
   attr_reader :name, :budget, :id
 
   def initialize( options )

@@ -3,13 +3,13 @@
 
 <h3 class="index">Current Expenditure: <%= @value%></h3>
 
-
+<!-- MAIN PAGE, REMEMBER TO ADD POUND SIGNS!! -->
 
 <div class="container">
   <table>
     <tr>
       <th>Merchant Name</th>
-      <th>Transaction Value</th>
+      <th>Transaction Value (£)</th>
       <th></th>
     </tr>
     <% @transactions.each do |transaction| %>
@@ -24,6 +24,3 @@
 </div>
 
 <h4 class="index">Remember to always stay on top of your finances as spending more than you earn can lead to debt and can affect your credit rating</h4>
-<div class="tag-image">
-
-</div>

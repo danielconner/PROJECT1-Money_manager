@@ -124,6 +124,7 @@ select {
   font-family: 'Karla', sans-serif;
   font-size: 20px;
   padding-right: 10px;
+  padding-bottom: 10px;
 }
 
 .filter select{

@@ -1,3 +1,5 @@
+# my seeds file to fill my db before the page is up and running
+
 require_relative('../models/users.rb')
 require_relative('../models/transactions.rb')
 require_relative('../models/tag.rb')
@@ -18,10 +20,10 @@ user1 = User.new ({
 user1.save()
 
 tag1 = Tag.new ({
-  'tag_name' => 'Groceries'
+  'tag_name' => 'Food'
   })
 tag2 = Tag.new ({
-  'tag_name' => 'Wardobe'
+  'tag_name' => 'Clothes'
   })
 tag3 = Tag.new ({
   'tag_name' => 'Bills'
