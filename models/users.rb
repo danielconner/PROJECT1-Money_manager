@@ -60,4 +60,8 @@ class User
     return amount
   end
 
-end
+  def over_budget
+    return @remaining_budget < 0
+  end
+
+  end

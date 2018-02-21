@@ -11,6 +11,7 @@ get '/transactions' do
   @transactions = Transaction.all()
   @value = Transaction.transaction_total()
   @tag = Tag.all()
+  @user = User.all()
   erb(:index)
 end
 
