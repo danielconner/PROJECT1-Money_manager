@@ -14,7 +14,7 @@ Tag.delete_all
 
 user1 = User.new ({
   'name' => 'Danny',
-  'budget' => 100.00
+  'budget' => 1600.00
 })
 
 user1.save()

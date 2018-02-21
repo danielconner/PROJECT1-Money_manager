@@ -33,6 +33,11 @@ body {
   display:grid;
   background-color: #46494C;
   height:300px;
+  border: 2px #46494C ridge;
+}
+
+.header img {
+ border: 2px #DCDCDD ridge;
 }
 
 .container {

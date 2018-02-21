@@ -2,11 +2,14 @@
 
 <div class="home">
 
-<h1>Welcome to your Money MGMT web app</h1>
+  <% for use in @user %>
 
-<h2>The app that keeps your spending in check</h2>
+<h1>Welcome <%= use.name %> to your Money MGMT web app</h1>
+<h3>You have set your budget to <%= use.budget%></h3>
+<h3>The app that keeps your spending in check</h3>
 
 <p>Please use the buttons above to naviagate through the app</p>
+<% end %>
 </div>
 
 <div class="small-print">

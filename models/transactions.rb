@@ -85,4 +85,6 @@ class Transaction
     return tags.map{|tag| Transaction.new(tag)}
   end
 
+  
+
 end

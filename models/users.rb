@@ -26,6 +26,7 @@ class User
     SqlRunner.run(sql, values)
   end
 
+
   def self.all
     sql ="SELECT * From users"
     users = SqlRunner.run(sql)
@@ -52,5 +53,11 @@ class User
     SqlRunner.run( sql, values )
   end
 
+  def remaining_budget
+    budget = @budget
+    spend = Transaction.transaction_total
+    amount = budget - spend
+    return amount
+  end
 
 end
